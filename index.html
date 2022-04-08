@@ -170,16 +170,35 @@
 					<header class="major">
 						<h2>RSVP</h2>
 					</header>
-					<iframe id="formFrame" src="https://docs.google.com/forms/d/1j68INI8gL2cuIwGThgxZEreye9hiCyJ6tXAgroHIYdc/viewform?embedded=true" width="100%" height="955" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+					<form method="post" action="#">
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<label>Ik kan aanwezig zijn vanaf 18u (receptie - diner - avondfeest)</label>
+								<div align="left" style="margin-left: 50px; margin-right: 50px">
+									<input type="radio" id="form_aanwezig_ja" name="aanwezig" value="ja" required><label for="form_aanwezig_ja">ja</label><br>
+									<input type="radio" id="form_aanwezig_nee" name="aanwezig" value="nee"><label for="form_aanwezig_nee">nee</label><br>
+									<input type="radio" id="form_aanwezig_anders" name="aanwezig" value="anders"> <label for="form_aanwezig_anders">Anders</label><input type="text" name="aanwezig" id="form_aanwezig_anders_text" />
+								</div>
+							</div>
+							<div class="col-12"><textarea name="message" placeholder="Wat zijn de namen van de personen die komen?" rows="4" required></textarea></div>
+							<div class="col-12"><textarea name="message" placeholder="Allergiën of zaken waar we rekening mee kunnen houden bij het eten?" rows="4"></textarea></div>
+							<div class="col-12"><textarea name="message" placeholder="Opmerkingen en/of vragen" rows="4"></textarea></div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><input type="submit" value="Verstuur RSVP" class="" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</div>
 				<footer>
-					<ul class="icons">
+<!-- 					<ul class="icons">
 						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
 						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
+					</ul> -->
 					<ul class="copyright">
 						<li>&copy; Kimberly & Arne</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
@@ -197,6 +216,16 @@
 
 			<script>
 (function () {
+    $("#form_aanwezig_anders_text").hide();
+	$('input[type="radio"][name="aanwezig"]').click(function(){
+    	var val = $(this).val();
+    	if (val == "anders") {
+    		$("#form_aanwezig_anders_text").show();
+    	} else {
+	        $("#form_aanwezig_anders_text").hide();
+    	}
+    });
+
   const second = 1000,
     minute = second * 60,
     hour = minute * 60,
