@@ -10,6 +10,34 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+.countdown li {
+  display: inline-block;
+  font-size: 0.8em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+ 
+.countdown li span {
+  display: block;
+  font-size: 2rem;
+}
+ 
+.countdown .message {
+  font-size: 4rem;
+}
+ 
+.countdown  #content {
+  display: none;
+  padding: 4rem;
+}
+ 
+.countdown  .emoji {
+  padding: 0 0.25rem;
+}
+</style>
 	</head>
 	<body class="is-preload">
 
@@ -21,13 +49,13 @@
 				</header>
 				<div class="container">
 					<ul class="actions special">
-						<li><a href="#RSVP" class="button primary scrolly">RSVP</a></li>
+						<li><a href="#RSVP" class="button scrolly">RSVP</a></li>
 					</ul>
 				</div>
 			</section>
 
-		<!-- One -->
-			<section id="one" class="main special">
+		<!-- intro -->
+			<section id="intro" class="main special">
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
@@ -35,14 +63,14 @@
 							<h2>Who I am</h2>
 						</header> -->
 						<p>Na meer dan 7 jaar is het voor ons tijd voor de volgende stap in ons levensverhaal. We willen daarom graag op deze dag onze liefde delen met de mensen die ons het meest dierbaar zijn!</p>
-						<img src="images/_8105629.jpg" alt="" style="width: 100%;" />
+						<img src="images/8105629.jpg" alt="" style="width: 100%;" />
 					</div>
-					<a href="#two" class="goto-next scrolly">Next</a>
+					<a href="#tijdlijn" class="goto-next scrolly">Next</a>
 				</div>
 			</section>
 
 		<!-- Two -->
-			<section id="two" class="main special">
+			<section id="tijdlijn" class="main special">
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
@@ -69,12 +97,28 @@
 							</li>
 						</ul>
 					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
+					<a href="#fotos" class="goto-next scrolly">Next</a>
 				</div>
 			</section>
 
+		<!-- Two -->
+			<section id="fotos" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content">
+						<header class="major">
+							<h2>Foto's delen</h2>
+						</header>
+						<p>Foto's die je tijdens ons trouwfeest hebt genomen kan je op de onderstaande website makkelijk uploaden.</p>
+						<a href="https://weduploader.com/upload/xsKLhS2H28sIzJdB" class="button">Klik hier</a>
+					</div>
+					<a href="#locatie" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+
 		<!-- Three -->
-			<section id="three" class="main special">
+			<section id="locatie" class="main special">
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
@@ -87,6 +131,35 @@
 						</p>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10086.755560704192!2d3.6214830000000005!3d50.799874!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c30ff0208c5305%3A0xe506e2002a8f5883!2sNederholbeekstraat%20135%2C%209680%20Maarkedal%2C%20Belgium!5e0!3m2!1sen!2sus!4v1649430481067!5m2!1sen!2sus" style="border:0; width: 100%; height: 50vh;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
+					<a href="#countdown" class="goto-next scrolly">Next</a>
+				</div>
+			</section>
+
+
+
+			<section id="countdown" class="main special">
+				<div class="container">
+					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
+					<div class="content countdown">
+						<header class="major">
+							<h2 id="headline">Aftellen</h2>
+						</header>
+						<div id="countdown">
+						<ul>
+							<li><span id="days"></span> dagen</li>
+							<li><span id="hours"></span> uren</li>
+							<li><span id="minutes"></span> minuten</li>
+							<li><span id="seconds"></span> seconden</li>
+						</ul>
+						</div>
+						<div class="message">
+							<div id="content">
+								<span class="emoji">🥳</span>
+								<span class="emoji">🎉</span>
+								<span class="emoji">🎂</span>
+							</div>
+						</div>
+					</div>
 					<a href="#RSVP" class="goto-next scrolly">Next</a>
 				</div>
 			</section>
@@ -97,7 +170,7 @@
 					<header class="major">
 						<h2>RSVP</h2>
 					</header>
-					<iframe id="formFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSeNHiFsNvQy1RIB5TNeDxMw72NCK6qm5PZp_5YjfQGS6pic1Q/viewform?embedded=true" width="100%" height="955" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+					<iframe id="formFrame" src="https://docs.google.com/forms/d/1j68INI8gL2cuIwGThgxZEreye9hiCyJ6tXAgroHIYdc/viewform?embedded=true" width="100%" height="955" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 				</div>
 				<footer>
 					<ul class="icons">
@@ -108,7 +181,7 @@
 						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Kimberly & Arne</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
+						<li>&copy; Kimberly & Arne</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -121,5 +194,47 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+(function () {
+  const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+ 
+  let birthday = "2022-07-02 13:30:00",
+    countDown = new Date(birthday).getTime(),
+    x = setInterval(function () {
+      let now = new Date().getTime(),
+        distance = countDown - now;
+ 
+      (document.getElementById("days").innerText = Math.floor(distance / day)),
+        (document.getElementById("hours").innerText = Math.floor(
+          (distance % day) / hour
+        )),
+        (document.getElementById("minutes").innerText = Math.floor(
+          (distance % hour) / minute
+        )),
+        (document.getElementById("seconds").innerText = Math.floor(
+          (distance % minute) / second
+        ));
+ 
+      //do something later when date is reached
+      if (distance < 0) {
+        let headline = document.getElementById("headline"),
+          countdown = document.getElementById("countdown"),
+          content = document.getElementById("content");
+ 
+        headline.innerText = "It's my birthday!";
+        countdown.style.display = "none";
+        content.style.display = "block";
+ 
+        clearInterval(x);
+      }
+      //seconds
+    }, 200);
+})();
+ 
+</script>
 	</body>
 </html>
