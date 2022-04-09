@@ -1,6 +1,6 @@
-# pocForm
+# Kimberly en Arne trouwen
 
-Simple site embedding google form
+Website for wedding of Kimberly and Arne
 
 ## Credits
 
@@ -17,3 +17,7 @@ Simple site embedding google form
 [jQuery](jquery.com)
 [Scrollex](github.com/ajlkn/jquery.scrollex)
 [Responsive Tools](github.com/ajlkn/responsive-tools)
+
+### Form
+
+[Formspark](https://www.formspark.io/)
