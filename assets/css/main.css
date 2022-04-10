@@ -3023,7 +3023,7 @@ input, select, textarea {
 					}
 
 				#header .container {
-					display: none;
+					/*display: none;*/
 				}
 
 		/* Footer */
@@ -3103,7 +3103,7 @@ input, select, textarea {
 			input[type="button"],
 			button,
 			.button {
-				padding: 0;
+				/*padding: 0;*/
 			}
 
 				input[type="submit"].icon,
@@ -3122,6 +3122,11 @@ input, select, textarea {
 
 				.main .container .image.primary:first-child {
 					margin: -2em 0 2.5em 0;
+				}
+
+
+				#header .container {
+					margin-left: -50%;
 				}
 
 		/* Footer */
