@@ -1,6 +1,14 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400italic,700,800");
 
+img.day-icon {
+	width: 50%;
+}
+
+img.main-icon {
+	width: 100%;
+}
+
 /*
 	Highlights by HTML5 UP
 	html5up.net | @ajlkn
