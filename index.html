@@ -17,29 +17,29 @@
 		<link rel="manifest" href="/site.webmanifest">
 		<style>
 .countdown li {
-  display: inline-block;
-  font-size: 0.8em;
-  list-style-type: none;
-  padding: 1em;
-  text-transform: uppercase;
+	display: inline-block;
+	font-size: 0.8em;
+	list-style-type: none;
+	padding: 1em;
+	text-transform: uppercase;
 }
  
 .countdown li span {
-  display: block;
-  font-size: 2rem;
+	display: block;
+	font-size: 2rem;
 }
  
 .countdown .message {
-  font-size: 4rem;
+	font-size: 4rem;
 }
  
 .countdown  #content {
-  display: none;
-  padding: 4rem;
+	display: none;
+	padding: 4rem;
 }
  
 .countdown  .emoji {
-  padding: 0 0.25rem;
+	padding: 0 0.25rem;
 }
 </style>
 	</head>
@@ -186,19 +186,29 @@
 						<input type="hidden" name="_feedback.language" value="nl" />
 						<div class="row gtr-uniform">
 							<div class="col-12">
-								<label>Ik kan aanwezig zijn vanaf 18u (receptie - diner - avondfeest)</label>
+								<label>Ik kan aanwezig zijn voor </label>
 								<div align="left" style="margin-left: 50px; margin-right: 50px">
-									<input type="radio" id="form_aanwezig_ja" name="aanwezig" value="ja" required><label for="form_aanwezig_ja">ja</label><br>
-									<input type="radio" id="form_aanwezig_nee" name="aanwezig" value="nee"><label for="form_aanwezig_nee">nee</label><br>
-									<input type="radio" id="form_aanwezig_anders" name="aanwezig" value="anders"> <label for="form_aanwezig_anders">Anders</label><input type="text" name="aanwezig" id="form_aanwezig_anders_text" />
+									<input type="checkbox" id="form_aanwezig_nee" name="aanwezig" value="niet aanwezig"><label for="form_aanwezig_nee">Ik kan helaas niet aanwezig zijn</label>
+									<div id="form_aanwezig" >
+										<input type="checkbox" id="form_aanwezig_wet" name="aanwezig" value="wet"><label for="form_aanwezig_wet">Wet (13u30)</label><br/>
+										<input type="checkbox" id="form_aanwezig_kerk" name="aanwezig" value="kerk"><label for="form_aanwezig_kerk">Kerk (14u00)</label><br/>
+										<input type="checkbox" id="form_aanwezig_avond" name="aanwezig" value="avond"><label for="form_aanwezig_avond">Receptie - diner - avondfeest (18u00)</label><br/>
+										<input type="checkbox" id="form_aanwezig_anders" name="aanwezig" value="anders"> <label for="form_aanwezig_anders">Anders</label><input type="text" name="aanwezig" id="form_aanwezig_anders_text" /><br/>
+									</div>
 								</div>
 							</div>
-							<div class="col-12"><label for="form_namen">Wat zijn de namen van de personen die komen?</label></div>
-							<div class="col-12"><textarea name="namen" id="form_namen" placeholder="Wat zijn de namen van de personen die komen?" rows="4" required></textarea></div>
-							<div class="col-12"><label for="form_allergien">Allergiën of zaken waar we rekening mee kunnen houden bij het eten?</label></div>
-							<div class="col-12"><textarea name="allergien" id="form_allergien" placeholder="Allergiën of zaken waar we rekening mee kunnen houden bij het eten?" rows="4"></textarea></div>
-							<div class="col-12"><label for="form_opmerkingen">Opmerkingen en/of vragen</label></div>
-							<div class="col-12"><textarea name="opmerkingen" id="form_opmerkingen" placeholder="Opmerkingen en/of vragen" rows="4"></textarea></div>
+							<div class="col-12" id="form_namen_display">
+								<div class="col-12"><label for="form_namen">Wat zijn de namen van de personen die komen?</label></div>
+								<div class="col-12"><textarea name="namen" id="form_namen" placeholder="Wat zijn de namen van de personen die komen?" rows="4" required></textarea></div>
+							</div>
+							<div class="col-12" id="form_allergien_display">
+								<div class="col-12"><label for="form_allergien">Allergiën of zaken waar we rekening mee kunnen houden bij het eten?</label></div>
+								<div class="col-12"><textarea name="allergien" id="form_allergien" placeholder="Allergiën of zaken waar we rekening mee kunnen houden bij het eten?" rows="4"></textarea></div>
+							</div>
+							<div class="col-12" id="form_opmerkingen_display">
+								<div class="col-12"><label for="form_opmerkingen">Opmerkingen en/of vragen</label></div>
+								<div class="col-12"><textarea name="opmerkingen" id="form_opmerkingen" placeholder="Opmerkingen en/of vragen" rows="4"></textarea></div>
+							</div>
 							<div class="col-12">
 								<ul class="actions special">
 									<li><input type="submit" value="Verstuur RSVP" class="" /></li>
@@ -231,53 +241,79 @@
 			<script src="assets/js/main.js"></script>
 
 			<script>
-(function () {
-    $("#form_aanwezig_anders_text").hide();
-	$('input[type="radio"][name="aanwezig"]').click(function(){
-    	var val = $(this).val();
-    	if (val == "anders") {
-    		$("#form_aanwezig_anders_text").show();
-    	} else {
-	        $("#form_aanwezig_anders_text").hide();
-    	}
-    });
+function updateAnders() {
+	if ($('#form_aanwezig_anders').prop('checked')) {
+		$('#form_aanwezig_anders_text').show();
+	} else {
+		$('#form_aanwezig_anders_text').hide();
+	}
+}
+function updateNietAanwezig() {	
+	if ($('#form_aanwezig_nee').prop('checked')) {
 
-  const second = 1000,
-    minute = second * 60,
-    hour = minute * 60,
-    day = hour * 24;
+		$('#form_aanwezig_wet').prop('checked', false);
+		$('#form_aanwezig_kerk').prop('checked', false);
+		$('#form_aanwezig_avond').prop('checked', false);
+		$('#form_aanwezig_anders').prop('checked', false);
+		$('#form_aanwezig_anders_text').val('');
+		updateAnders();
+
+		$('#form_aanwezig').hide();
+		$('#form_allergien_display').hide();
+
+		$('[for="form_namen"]').text('Wat zijn de namen van de personen die niet komen?');
+		$('#form_namen').attr('placeholder', 'Wat zijn de namen van de personen die niet komen?');
+	} else {
+		$('#form_aanwezig').show();
+		$('#form_allergien_display').show();
+
+		$('[for="form_namen"]').text('Wat zijn de namen van de personen die komen?');
+		$('#form_namen').attr('placeholder', 'Wat zijn de namen van de personen die komen?');
+	}
+}
+
+(function () {
+	updateAnders();
+	updateNietAanwezig();
+	$('#form_aanwezig_anders').click(updateAnders);
+	$('#form_aanwezig_nee').click(updateNietAanwezig);
+
+	const second = 1000,
+		minute = second * 60,
+		hour = minute * 60,
+		day = hour * 24;
  
-  let birthday = "2022-07-02 13:30:00",
-    countDown = new Date(birthday).getTime(),
-    x = setInterval(function () {
-      let now = new Date().getTime(),
-        distance = countDown - now;
+	let birthday = "2022-07-02 13:30:00",
+		countDown = new Date(birthday).getTime(),
+		x = setInterval(function () {
+			let now = new Date().getTime(),
+				distance = countDown - now;
  
-      (document.getElementById("days").innerText = Math.floor(distance / day)),
-        (document.getElementById("hours").innerText = Math.floor(
-          (distance % day) / hour
-        )),
-        (document.getElementById("minutes").innerText = Math.floor(
-          (distance % hour) / minute
-        )),
-        (document.getElementById("seconds").innerText = Math.floor(
-          (distance % minute) / second
-        ));
+			(document.getElementById("days").innerText = Math.floor(distance / day)),
+				(document.getElementById("hours").innerText = Math.floor(
+					(distance % day) / hour
+				)),
+				(document.getElementById("minutes").innerText = Math.floor(
+					(distance % hour) / minute
+				)),
+				(document.getElementById("seconds").innerText = Math.floor(
+					(distance % minute) / second
+				));
  
-      //do something later when date is reached
-      if (distance < 0) {
-        let headline = document.getElementById("headline"),
-          countdown = document.getElementById("countdown"),
-          content = document.getElementById("content");
+			//do something later when date is reached
+			if (distance < 0) {
+				let headline = document.getElementById("headline"),
+					countdown = document.getElementById("countdown"),
+					content = document.getElementById("content");
  
-        headline.innerText = "It's my birthday!";
-        countdown.style.display = "none";
-        content.style.display = "block";
+				headline.innerText = "It's my birthday!";
+				countdown.style.display = "none";
+				content.style.display = "block";
  
-        clearInterval(x);
-      }
-      //seconds
-    }, 200);
+				clearInterval(x);
+			}
+			//seconds
+		}, 200);
 })();
  
 </script>
